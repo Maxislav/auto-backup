@@ -38,7 +38,7 @@ fs.watchFile(srcPath, function (e) {
   }
   fs.createReadStream(srcPath).pipe(fs.createWriteStream(backUpDir+"/"+fileNameBackUp));
   if(steps<history.length){
-    fs.unlinkSync(backUpDir+"/"+history[history.length-1])
+    fs.unlinkSync(backUpDir+"/"+history[0])
   }
 
 });
