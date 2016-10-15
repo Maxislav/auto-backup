@@ -17,5 +17,10 @@ fs.watchFile(srcPath, function (e) {
   let fileNameBackUp = "autobackup_"+history.length+"_"+srcPath;
   history.push(fileNameBackUp);
   console.log(fileNameBackUp);
+	fs.createReadStream(srcPath).pipe(fs.createWriteStream(fileNameBackUp));
+
+
+
+
 });
 
