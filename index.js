@@ -3,18 +3,18 @@
  */
 var fs = require('fs');
 let history = [];
-let path = '';
+let srcPath = '';
   process.argv.forEach((val, index, array)=> {
     if (2 <= index) {
-      path += val + ' '
+      srcPath += val + ' '
     }
   });
-path = path.replace(/\s+$/g, "");
-  console.log(path);
+srcPath = srcPath.replace(/\s+$/g, "");
+  console.log(srcPath);
 
-fs.watchFile(path, function (e) {
+fs.watchFile(srcPath, function (e) {
   //console.log(e)
-  let fileNameBackUp = "autobackup_"+history.length+"_"+path;
+  let fileNameBackUp = "autobackup_"+history.length+"_"+srcPath;
   history.push(fileNameBackUp);
   console.log(fileNameBackUp);
 });
